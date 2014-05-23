@@ -82,8 +82,8 @@ class TiabSession:
       with ZipFile(self.tiabZipPath, "r") as z:
          z.extractall(self.tiabDirectory)
       try:
-         self.callBitcoinD(["-datadir=" + self.tiabDirectory + "\\tiab\\1", "-debug"])
-         self.callBitcoinD(["-datadir=" + self.tiabDirectory + "\\tiab\\2", "-debug"])
+         self.callBitcoinD(["-datadir=" + os.path.join(self.tiabDirectory,'tiab','1'), "-debug"])
+         self.callBitcoinD(["-datadir=" + os.path.join(self.tiabDirectory,'tiab','2'), "-debug"])
       except:
          self.clean()
          raise
